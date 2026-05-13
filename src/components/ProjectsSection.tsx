@@ -9,6 +9,7 @@ const projects = [
       "Mobile interval-training app built to strengthen my React Native skills, including reusable components, timer logic, workout flows, and responsive mobile UI.",
     tech: ["React Native", "Expo", "TypeScript", "Mobile UI"],
     link: "#",
+    privacyLink: "/privacy/tabata",
   },
   {
     title: "AI Motivation App",
@@ -16,6 +17,7 @@ const projects = [
       "Mobile app that delivers personalized motivational messages generated with AI, scheduled through AWS cron jobs and sent to users using push notifications.",
     tech: ["React Native", "Expo", "AI API", "AWS", "Push Notifications"],
     link: "#",
+    privacyLink: "/privacy/ai-motivation-app",
   },
   {
     title: "Gym Workout Tracker",
@@ -43,18 +45,19 @@ export function ProjectsSection() {
 
         <div className="grid gap-6 md:grid-cols-2">
           {projects.map((project, i) => (
-            <motion.a
+            <motion.div
               key={project.title}
-              href={project.link}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + i * 0.15 }}
               className="glass-card group relative overflow-hidden rounded-2xl p-8 transition-all duration-500 hover:border-primary/30"
             >
               {/* Hover glow */}
-              <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              <div
+                className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 style={{
-                  background: "radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), oklch(0.7 0.25 330 / 6%), transparent 40%)",
+                  background:
+                    "radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), oklch(0.7 0.25 330 / 6%), transparent 40%)",
                 }}
               />
 
@@ -83,8 +86,17 @@ export function ProjectsSection() {
                     </span>
                   ))}
                 </div>
+
+                {project.privacyLink && (
+                  <a
+                    href={project.privacyLink}
+                    className="mt-6 inline-flex items-center rounded-md border border-primary/40 px-3 py-1.5 font-display text-xs tracking-wider uppercase text-primary transition-all duration-300 hover:bg-primary/10 hover:border-primary"
+                  >
+                    Privacy Policy
+                  </a>
+                )}
               </div>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
       </div>

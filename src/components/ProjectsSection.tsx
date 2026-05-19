@@ -8,7 +8,7 @@ const projects = [
     description:
       "Mobile interval-training app built to strengthen my React Native skills, including reusable components, timer logic, workout flows, and responsive mobile UI.",
     tech: ["React Native", "Expo", "TypeScript", "Mobile UI"],
-    link: "#",
+    link: "https://apps.apple.com/app/id6768385096",
     privacyLink: "/privacy/tabata",
   },
   {
@@ -16,7 +16,7 @@ const projects = [
     description:
       "Mobile app that delivers personalized motivational messages generated with AI, scheduled through AWS cron jobs and sent to users using push notifications.",
     tech: ["React Native", "Expo", "AI API", "AWS", "Push Notifications"],
-    link: "#",
+    link: "https://apps.apple.com/app/id6767008173",
     privacyLink: "/privacy/ai-motivation-app",
   },
   {

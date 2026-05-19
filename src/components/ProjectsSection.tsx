@@ -66,10 +66,20 @@ export function ProjectsSection() {
                   <h3 className="font-display text-2xl tracking-wide uppercase text-foreground">
                     {project.title}
                   </h3>
-                  <ExternalLink
-                    size={18}
-                    className="text-muted-foreground transition-all duration-300 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  />
+
+                  {project.link !== "#" && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Open ${project.title} in App Store`}
+                    >
+                      <ExternalLink
+                        size={18}
+                        className="text-muted-foreground transition-all duration-300 hover:text-primary hover:translate-x-0.5 hover:-translate-y-0.5"
+                      />
+                    </a>
+                  )}
                 </div>
 
                 <p className="mb-6 text-muted-foreground leading-relaxed">
@@ -87,14 +97,27 @@ export function ProjectsSection() {
                   ))}
                 </div>
 
-                {project.privacyLink && (
-                  <a
-                    href={project.privacyLink}
-                    className="mt-6 inline-flex items-center rounded-md border border-primary/40 px-3 py-1.5 font-display text-xs tracking-wider uppercase text-primary transition-all duration-300 hover:bg-primary/10 hover:border-primary"
-                  >
-                    Privacy Policy
-                  </a>
-                )}
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {project.link !== "#" && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center rounded-md border border-primary/40 px-3 py-1.5 font-display text-xs tracking-wider uppercase text-primary transition-all duration-300 hover:bg-primary/10 hover:border-primary"
+                    >
+                      View App
+                    </a>
+                  )}
+
+                  {project.privacyLink && (
+                    <a
+                      href={project.privacyLink}
+                      className="inline-flex items-center rounded-md border border-primary/40 px-3 py-1.5 font-display text-xs tracking-wider uppercase text-primary transition-all duration-300 hover:bg-primary/10 hover:border-primary"
+                    >
+                      Privacy Policy
+                    </a>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}
